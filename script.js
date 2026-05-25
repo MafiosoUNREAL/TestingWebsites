@@ -124,8 +124,8 @@ window.onload = function() {
     const imageUrls = {
         car1: "https://cdna.artstation.com/p/assets/images/images/028/178/932/large/denys-horokhovskykh-10.jpg?1593701288",
         car2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2UMd9Ojy85iX7wPVBR0g9JjlD5GLbAIoGw&s",
-        car3: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE-b1mKrAlfbTV10RSCwaFJRS2Gok1UbhE0g&s",
-        car4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqHvR-cXDrVv6doMo7GKfV2fRq14glHJw9ZA&s"
+        car3: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Ac9KRSzSDpgZDhO7zsd-vpVRajjdQ4dYeg&s",
+        car4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa7A0u_5J-QMR74pmE30l5VuSy_qRaMzpxRQ&s"
     };
     
     function changeCarImage(url) {
