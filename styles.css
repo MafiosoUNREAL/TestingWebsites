@@ -1,0 +1,130 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    padding-top: 150px;
+    font-size: 1rem;
+    min-height: 100vh;
+    color: antiquewhite;
+    font-family: "Jura", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/* pim pim pam pam */
+.theme-1 { background: linear-gradient(37deg, #020024 0%, #090979 35%, #00d4ff 100%) !important; }
+.theme-2 { background: linear-gradient(37deg, #240000 0%, #793209 35%, #ff9900 100%) !important; }
+.theme-3 { background: linear-gradient(37deg, #1c0049 0%, #271d5f 35%, #c19ed1 100%) !important; }
+.theme-4 { background: linear-gradient(37deg, #002405 0%, #097918 35%, #15ff00 100%) !important; }
+
+
+header {
+    top: 0;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(10, 10, 10, 0.8);
+    font-weight: bold;
+    color: aquamarine;
+    font-family: "Jura", sans-serif;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+footer {    
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    color: blueviolet;
+    padding: 10px;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.navigation-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.Navigation-item {
+    display: inline;
+    margin-right: 15px;
+}
+
+.Navigation-linked {
+    color: white;
+    text-decoration: none;
+}
+
+.Navigation-linked:hover {
+    color: rgb(0, 30, 128);
+    text-decoration: underline;
+}
+
+.Note { 
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+
+}
+.MACHINE {
+    font-size: 100;
+    font-family: 'Times New Roman', Times, serif;
+}
+.btnLeft {
+    background: none;
+    line-height: 1;
+}
+.btnRight {
+    background: none;
+    line-height: 1;
+}
+.close-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 35px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.5 ease;
+}
+
+
+.close-button:hover {
+    color:rgb(255, 0, 128);
+}
+
+.Note-Main {
+    font-size: 1.5rem;
+    
+}
+.blue-cyan { 
+    color: rgb(0, 30, 128)
+}
+.troll {    
+    font-size: 0.625rem;
+    color: rgb(50, 50, 50);  
+}
+
+#car {
+    position: relative;
+    width: 300px;
+    transition: transform 0.05s ease-out;
+}
+
+#car img {
+    width: 100%;
+    display: block;
+}
