@@ -1,1 +1,2 @@
-It's my course work, don't mind really
+It's my course work, don't mind really.
+!!!WARNING: THERE ARE EASTER EGGS WITH SCREAMERS, TYPE CAREFULLY ANY WORD!!!
