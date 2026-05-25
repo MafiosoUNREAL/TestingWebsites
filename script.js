@@ -1,5 +1,7 @@
 window.onload = function() {
     const carContainer = document.getElementById('car'); 
+    const carImage = document.querySelector('#car img');
+    
     const btnLeft = document.getElementById('btnLeft');
     const btnRight = document.getElementById('btnRight');
     
@@ -68,18 +70,10 @@ window.onload = function() {
     const greenBtn = document.getElementById("green");
     
     document.body.className = "theme-1";
-    blueCyanBtn.addEventListener("click", function() {   
-        document.body.className = "theme-1";
-    });
-    redOrangeBtn.addEventListener("click", function() {   
-        document.body.className = "theme-2";
-    });
-    purpleWhiteBtn.addEventListener("click", function() {   
-        document.body.className = "theme-3";
-    });
-    greenBtn.addEventListener("click", function() {   
-        document.body.className = "theme-4";
-    });
+    if (blueCyanBtn) blueCyanBtn.addEventListener("click", function() { document.body.className = "theme-1"; });
+    if (redOrangeBtn) redOrangeBtn.addEventListener("click", function() { document.body.className = "theme-2"; });
+    if (purpleWhiteBtn) purpleWhiteBtn.addEventListener("click", function() { document.body.className = "theme-3"; });
+    if (greenBtn) greenBtn.addEventListener("click", function() { document.body.className = "theme-4"; });
 
     function fixHeaderOverlap() {
         const header = document.querySelector('header');
@@ -117,6 +111,62 @@ window.onload = function() {
     if (closeBtn) {
         closeBtn.addEventListener('click', function() { 
             window.location.replace("about:blank");
+        });
+    }
+   
+    const carImg1 = document.getElementById('carImg1');
+    const carImg2 = document.getElementById('carImg2');
+    const carImg3 = document.getElementById('carImg3');
+    const carImg4 = document.getElementById('carImg4');
+    const customImgUrl = document.getElementById('customImgUrl');
+    const setCustomImg = document.getElementById('setCustomImg');
+    
+    const imageUrls = {
+        car1: "https://cdna.artstation.com/p/assets/images/images/028/178/932/large/denys-horokhovskykh-10.jpg?1593701288",
+        car2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2UMd9Ojy85iX7wPVBR0g9JjlD5GLbAIoGw&s",
+        car3: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE-b1mKrAlfbTV10RSCwaFJRS2Gok1UbhE0g&s",
+        car4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqHvR-cXDrVv6doMo7GKfV2fRq14glHJw9ZA&s"
+    };
+    
+    function changeCarImage(url) {
+        if (carImage && url) {
+            carImage.src = url;
+        }
+    }
+    
+    if (carImg1) {
+        carImg1.addEventListener('click', function() {
+            changeCarImage(imageUrls.car1);
+        });
+    }
+    
+    if (carImg2) {
+        carImg2.addEventListener('click', function() {
+            changeCarImage(imageUrls.car2);
+        });
+    }
+    
+    if (carImg3) {
+        carImg3.addEventListener('click', function() {
+            changeCarImage(imageUrls.car3);
+        });
+    }
+    
+    if (carImg4) {
+        carImg4.addEventListener('click', function() {
+            changeCarImage(imageUrls.car4);
+        });
+    }
+    
+    if (setCustomImg && customImgUrl) {
+        setCustomImg.addEventListener('click', function() {
+            let userUrl = customImgUrl.value.trim();
+            if (userUrl !== "") {
+                changeCarImage(userUrl);
+                customImgUrl.value = "";
+            } else {
+                alert("Будь ласка, введіть URL фото!");
+            }
         });
     }
 };
