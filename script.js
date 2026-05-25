@@ -174,66 +174,75 @@ window.onload = function() {
 
 
 ///ПАСХАЛКА///
-    let typedKeys = [];
+///ПАСХАЛКА///
+let typedKeys = [];
+
+const screamers = [
+    {
+        words: ["d4c", "invincible"],
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwtQLk99vcIrKsVU7nJmE_smZz7t3jiBoILg&s"
+    },
+    {
+        words: ["furry", "fur", "romchik", "yaoi"],
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ooQlIXXRGtxKH-n987fdyfrZm2mQ0ZiznA&s"
+    }
+];
+
+function showScreamer(imageUrl) {
+    const screamerDiv = document.createElement('div');
+    screamerDiv.style.position = 'fixed';
+    screamerDiv.style.top = '0';
+    screamerDiv.style.left = '0';
+    screamerDiv.style.width = '100%';
+    screamerDiv.style.height = '100%';
+    screamerDiv.style.backgroundColor = 'black';
+    screamerDiv.style.zIndex = '99999';
+    screamerDiv.style.display = 'flex';
+    screamerDiv.style.alignItems = 'center';
+    screamerDiv.style.justifyContent = 'center';
+    screamerDiv.style.cursor = 'pointer';
     
-    const secretWords = ["d4c", "fear", "666", "dead", "creed"];
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.style.maxWidth = '100%';
+    img.style.maxHeight = '100%';
+    img.style.objectFit = 'contain';
     
-    function showScreamer() {
-        const screamerDiv = document.createElement('div');
-        screamerDiv.style.position = 'fixed';
-        screamerDiv.style.top = '0';
-        screamerDiv.style.left = '0';
-        screamerDiv.style.width = '100%';
-        screamerDiv.style.height = '100%';
-        screamerDiv.style.backgroundColor = 'black';
-        screamerDiv.style.zIndex = '99999';
-        screamerDiv.style.display = 'flex';
-        screamerDiv.style.alignItems = 'center';
-        screamerDiv.style.justifyContent = 'center';
-        screamerDiv.style.cursor = 'pointer';
-        
-        const img = document.createElement('img');
-        img.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwtQLk99vcIrKsVU7nJmE_smZz7t3jiBoILg&s';
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = '100%';
-        img.style.objectFit = 'contain';
-        
-        screamerDiv.appendChild(img);
-        document.body.appendChild(screamerDiv);
-        
-        const audio = new Audio('https://www.myinstants.com/media/sounds/scream-sound-effect.mp3');
-        audio.volume = 0.5;
-        audio.play().catch(e => console.log('Аудіо заблоковано'));
-        
-        screamerDiv.addEventListener('click', function() {
+    screamerDiv.appendChild(img);
+    document.body.appendChild(screamerDiv);
+    
+    screamerDiv.addEventListener('click', function() {
+        screamerDiv.remove();
+    });
+    
+    setTimeout(function() {
+        if (document.body.contains(screamerDiv)) {
             screamerDiv.remove();
-            audio.pause();
-            audio.currentTime = 0;
-        });
-        
-        setTimeout(function() {
-            if (document.body.contains(screamerDiv)) {
-                screamerDiv.remove();
-                audio.pause();
-                audio.currentTime = 0;
-            }
-        }, 3000);
+        }
+    }, 4000);
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        typedKeys = [];
+        return;
     }
     
-    document.addEventListener('keydown', function(event) {
-        typedKeys.push(event.key.toLowerCase());
-        
-        if (typedKeys.length > 15) {
-            typedKeys.shift();
-        }
-        
-        const currentSequence = typedKeys.join('');
-        
-        for (let word of secretWords) {
+    typedKeys.push(event.key.toLowerCase());
+    
+    if (typedKeys.length > 20) {
+        typedKeys.shift();
+    }
+    
+    const currentSequence = typedKeys.join('');
+    
+    for (let screamer of screamers) {
+        for (let word of screamer.words) {
             if (currentSequence.includes(word)) {
                 typedKeys = [];
-                showScreamer();
-                break;
+                showScreamer(screamer.image);
+                return;
             }
         }
-    });
+    }
+});

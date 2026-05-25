@@ -12,7 +12,6 @@ body {
     font-style: normal;
 }
 
-/* pim pim pam pam */
 .theme-1 { background: linear-gradient(37deg, #020024 0%, #090979 35%, #00d4ff 100%) !important; }
 .theme-2 { background: linear-gradient(37deg, #240000 0%, #793209 35%, #ff9900 100%) !important; }
 .theme-3 { background: linear-gradient(37deg, #1c0049 0%, #271d5f 35%, #c19ed1 100%) !important; }
@@ -20,7 +19,6 @@ body {
 
 button {
     background: linear-gradient(135deg, #2c3e50, #1a1a2e);
-    transition: transform 0.1s, box-shadow 0.2s;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -37,11 +35,108 @@ button:hover {
     transform: scale(0.96);
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     background: linear-gradient(135deg, #3e5a6b, #2a2a4e);
-
 }
 
 button:active {
     transform: scale(0.98);
+}
+
+#blue-cyan, #red-orange, #purple-white, #green {
+    background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#blue-cyan::before {
+    content: "Blue Theme";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(37deg, #100a7e 0%, #090979 35%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+#red-orange::before {
+    content: "Orange Theme";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(37deg, #690000 0%, #793209 35%, #ff9900 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+#purple-white::before {
+    content: "Purple Theme";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(37deg, #320083 0%, #3c2c97 35%, #c19ed1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+#green::before {
+    content: "Доходяга Theme";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(37deg, #003d09 0%, #097918 35%, #15ff00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+#blue-cyan:hover::before,
+#red-orange:hover::before,
+#purple-white:hover::before,
+#green:hover::before {
+    opacity: 1;
+}
+
+#blue-cyan:hover,
+#red-orange:hover,
+#purple-white:hover,
+#green:hover {
+    color: transparent;
 }
 
 header {
@@ -54,9 +149,6 @@ header {
     font-weight: bold;
     color: aquamarine;
     font-family: "Jura", sans-serif;
-    top: 0;
-    left: 0;
-    width: 100%;
     z-index: 100;
 }
 
@@ -98,20 +190,13 @@ footer {
     font-size: 1rem;
     display: flex;
     align-items: center;
-
 }
+
 .MACHINE {
     font-size: 100;
     font-family: 'Times New Roman', Times, serif;
 }
-.btnLeft {
-    background: none;
-    line-height: 1;
-}
-.btnRight {
-    background: none;
-    line-height: 1;
-}
+
 .close-button {
     position: fixed;
     top: 20px;
@@ -126,18 +211,18 @@ footer {
     transition: color 0.5 ease;
 }
 
-
 .close-button:hover {
-    color:rgb(255, 0, 128);
+    color: rgb(255, 0, 128);
 }
 
 .Note-Main {
     font-size: 1.5rem;
-    
 }
+
 .blue-cyan { 
-    color: rgb(0, 30, 128)
+    color: rgb(0, 30, 128);
 }
+
 .troll {    
     font-size: 0.625rem;
     color: rgb(50, 50, 50);  
