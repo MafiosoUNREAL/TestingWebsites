@@ -126,10 +126,13 @@ window.onload = function() {
     const imageUrls = {
         car1: "https://cdna.artstation.com/p/assets/images/images/028/178/932/large/denys-horokhovskykh-10.jpg?1593701288",
         car2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2UMd9Ojy85iX7wPVBR0g9JjlD5GLbAIoGw&s",
-        car3: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Ac9KRSzSDpgZDhO7zsd-vpVRajjdQ4dYeg&s",
+        car3: "https://images.steamusercontent.com/ugc/865111917380159024/6FBBE48A6CA7CAD010DF38D09C56F22333C114F2/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
         car4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa7A0u_5J-QMR74pmE30l5VuSy_qRaMzpxRQ&s",
         car5: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7M5rTgWOVzP0fYD24O9gvDsI_gcXYab3K3g&s",
-        car6: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhJDYJfxAlQMpIxSlLjpWplfx4UVguPNvCxg&s"
+        car6: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhJDYJfxAlQMpIxSlLjpWplfx4UVguPNvCxg&s",
+        car7: "https://i.ytimg.com/vi/Zi68A_jKa9A/maxresdefault.jpg",
+        car8: "https://preview.redd.it/all-the-jojo-naoya-memes-i-could-find-v0-w6obv8tllwdg1.png?width=640&crop=smart&auto=webp&s=a176ab08751c7030bca126a9c9226a98664b0800",
+        car9: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmePERL61kDPyr-7CPZAUCaS7Hddlj56SQ5Q&s"
     };
     
     function changeCarImage(url) {
@@ -171,6 +174,24 @@ window.onload = function() {
     if (carImg6) {
         carImg6.addEventListener('click', function() {
             changeCarImage(imageUrls.car6);
+        });
+    }
+
+    if (carImg7) {
+        carImg7.addEventListener('click', function() {
+            changeCarImage(imageUrls.car7);
+        });
+    }
+
+    if (carImg8) {
+        carImg8.addEventListener('click', function() {
+            changeCarImage(imageUrls.car8);
+        });
+    }
+
+    if (carImg9) {
+        carImg9.addEventListener('click', function() {
+            changeCarImage(imageUrls.car9);
         });
     }
     
