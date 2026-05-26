@@ -152,6 +152,32 @@ header {
     z-index: 100;
 }
 
+input {    
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    font-family: "Jura", sans-serif;
+    transition: all 0.3s ease
+}
+
+input:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    background: rgba(44, 42, 42, 0.5);
+    outline: none;
+    animation: glow 0.5s ease-in-out
+}
+
+input::placeholder {
+    color:rgba(255, 255, 255 0.5);
+    font-style: italic;
+    font-size: 17px;
+}
+
 footer {    
     background-color: rgba(0, 0, 0, 0.7);
     font-weight: bold;
@@ -184,6 +210,7 @@ footer {
     color: rgb(0, 30, 128);
     text-decoration: underline;
 }
+
 
 .Note { 
     font-family: 'Times New Roman', Times, serif;

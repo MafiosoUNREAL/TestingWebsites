@@ -118,6 +118,8 @@ window.onload = function() {
     const carImg2 = document.getElementById('carImg2');
     const carImg3 = document.getElementById('carImg3');
     const carImg4 = document.getElementById('carImg4');
+    const carImg5 = document.getElementById('carImg5');
+    const carImg6 = document.getElementById('carImg6');
     const customImgUrl = document.getElementById('customImgUrl');
     const setCustomImg = document.getElementById('setCustomImg');
     
@@ -125,7 +127,9 @@ window.onload = function() {
         car1: "https://cdna.artstation.com/p/assets/images/images/028/178/932/large/denys-horokhovskykh-10.jpg?1593701288",
         car2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2UMd9Ojy85iX7wPVBR0g9JjlD5GLbAIoGw&s",
         car3: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Ac9KRSzSDpgZDhO7zsd-vpVRajjdQ4dYeg&s",
-        car4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa7A0u_5J-QMR74pmE30l5VuSy_qRaMzpxRQ&s"
+        car4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa7A0u_5J-QMR74pmE30l5VuSy_qRaMzpxRQ&s",
+        car5: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7M5rTgWOVzP0fYD24O9gvDsI_gcXYab3K3g&s",
+        car6: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhJDYJfxAlQMpIxSlLjpWplfx4UVguPNvCxg&s"
     };
     
     function changeCarImage(url) {
@@ -157,6 +161,18 @@ window.onload = function() {
             changeCarImage(imageUrls.car4);
         });
     }
+
+    if (carImg5) {
+        carImg5.addEventListener('click', function() {
+            changeCarImage(imageUrls.car5);
+        });
+    }
+
+    if (carImg6) {
+        carImg6.addEventListener('click', function() {
+            changeCarImage(imageUrls.car6);
+        });
+    }
     
     if (setCustomImg && customImgUrl) {
         setCustomImg.addEventListener('click', function() {
@@ -185,6 +201,10 @@ const screamers = [
     {
         words: ["furry", "fur", "romchik", "yaoi"],
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ooQlIXXRGtxKH-n987fdyfrZm2mQ0ZiznA&s"
+    },
+    {
+        words: ["hate", "hatred", "a.m."],
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR62magdh3Rl1rTHU94YaMTFaggwTBzdL2Slw&s"
     }
 ];
 
