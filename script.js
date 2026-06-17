@@ -601,10 +601,10 @@ window.onload = function() {
 
     function updateMouseStatus() {
         if (isMouseActive) {
-            mouseStatus.textContent = 'Active';
+            mouseStatus.textContent = '✅ Active';
             mouseStatus.style.color = '#00ff88';
         } else {
-            mouseStatus.textContent = 'Innactive';
+            mouseStatus.textContent = '⛔ Inactive';
             mouseStatus.style.color = '#ff6b6b';
         }
     }
@@ -613,12 +613,12 @@ window.onload = function() {
         if (!isMouseActive) return;
         mouseX.textContent = event.clientX;
         mouseY.textContent = event.clientY;
-        mouseEventDisplay.textContent = `Moving (${event.clientX}, ${event.clientY})`;
-        mouseStatus.textContent = 'Move';
+        mouseEventDisplay.textContent = `Move (${event.clientX}, ${event.clientY})`;
+        mouseStatus.textContent = '🔄 Moving';
         mouseStatus.style.color = '#ffcc00';
         clearTimeout(window.mouseTimeout);
         window.mouseTimeout = setTimeout(() => {
-            mouseStatus.textContent = 'Active';
+            mouseStatus.textContent = '✅ Active';
             mouseStatus.style.color = '#00ff88';
         }, 500);
     });
@@ -629,24 +629,24 @@ window.onload = function() {
         let buttonName = '';
         if (event.button === 0) {
             mouseLeftBtn.classList.add('active-left');
-            buttonName = 'Left Button';
+            buttonName = 'Left button';
         } else if (event.button === 1) {
             mouseMiddleBtn.classList.add('active-middle');
-            buttonName = 'Middle Button';
+            buttonName = 'Middle button (wheel)';
         } else if (event.button === 2) {
             mouseRightBtn.classList.add('active-right');
-            buttonName = 'Right Button';
+            buttonName = 'Right button';
         }
         mouseEventDisplay.textContent = `Pressed: ${buttonName}`;
-        mouseStatus.textContent = 'Pressed';
+        mouseStatus.textContent = '🔴 Pressed';
         mouseStatus.style.color = '#ff6b6b';
     });
 
     document.addEventListener('mouseup', function(event) {
         if (!isMouseActive) return;
         resetMouseButtons();
-        mouseEventDisplay.textContent = `Released`;
-        mouseStatus.textContent = 'Active';
+        mouseEventDisplay.textContent = 'Released';
+        mouseStatus.textContent = '✅ Active';
         mouseStatus.style.color = '#00ff88';
     });
 
@@ -656,11 +656,11 @@ window.onload = function() {
         mouseScroll.textContent = scrollCount;
         const direction = event.deltaY > 0 ? 'Down' : 'Up';
         mouseEventDisplay.textContent = `Scroll: ${direction} (${scrollCount})`;
-        mouseStatus.textContent = 'Scroll';
+        mouseStatus.textContent = '📜 Scrolling';
         mouseStatus.style.color = '#ffcc00';
         clearTimeout(window.scrollTimeout);
         window.scrollTimeout = setTimeout(() => {
-            mouseStatus.textContent = 'Active';
+            mouseStatus.textContent = '✅ Active';
             mouseStatus.style.color = '#00ff88';
         }, 500);
     });
@@ -668,11 +668,17 @@ window.onload = function() {
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault();
         if (!isMouseActive) return;
-        resetMouseButtons();
         mouseRightBtn.classList.add('active-right');
-        mouseEventDisplay.textContent = 'Контекстне меню (ПКМ)';
-        mouseStatus.textContent = 'RMB';
+        mouseEventDisplay.textContent = 'Context menu (RMB)';
+        mouseStatus.textContent = '🔴 RMB';
         mouseStatus.style.color = '#ff6b6b';
+        
+        setTimeout(function() {
+            resetMouseButtons();
+            mouseEventDisplay.textContent = 'Released';
+            mouseStatus.textContent = '✅ Active';
+            mouseStatus.style.color = '#00ff88';
+        }, 300);
     });
 
     if (clearMouse) {
