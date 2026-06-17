@@ -456,3 +456,491 @@ footer {
         overflow-x: auto;
     }
 }
+
+.keyboard-panel {
+    background: rgba(10, 10, 25, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 1.5rem 1.8rem 1.2rem;
+    margin: 30px 0;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.3s ease;
+}
+
+.keyboard-panel:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.panel-title {
+    color: #00d4ff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.lang-switcher {
+    display: flex;
+    gap: 0.3rem;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.2rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 0.3rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: "Jura", sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.lang-btn:hover {
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.lang-btn.active {
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.05);
+}
+
+.key-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+    font-size: 0.9rem;
+    font-family: "Jura", sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: all 0.08s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    user-select: none;
+}
+
+.key-mod {
+    min-width: 60px;
+    font-size: 0.7rem;
+}
+
+.key-space {
+    min-width: 160px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.key-active {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: #00d4ff;
+    color: #00d4ff;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.1), inset 0 0 20px rgba(0, 212, 255, 0.05);
+    transform: translateY(2px) scale(0.97);
+}
+
+.panel-info {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.info-label {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.info-value {
+    color: #00d4ff;
+    font-size: 0.85rem;
+    font-family: "Jura", monospace;
+    background: rgba(0, 212, 255, 0.05);
+    padding: 0.1rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 212, 255, 0.05);
+    min-width: 40px;
+    text-align: center;
+}
+
+.panel-clear {
+    background: rgba(255, 70, 70, 0.06);
+    border: 1px solid rgba(255, 70, 70, 0.1);
+    color: rgba(255, 100, 100, 0.5);
+    padding: 0.1rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: auto;
+    font-family: "Jura", sans-serif;
+}
+
+.panel-clear:hover {
+    background: rgba(255, 70, 70, 0.12);
+    border-color: rgba(255, 70, 70, 0.2);
+    color: rgba(255, 100, 100, 0.8);
+}
+
+/* Адаптация под темы */
+.theme-2 .key-active {
+    background: rgba(255, 153, 0, 0.2);
+    border-color: #ff9900;
+    box-shadow: 0 0 30px rgba(255, 153, 0, 0.1), inset 0 0 20px rgba(255, 153, 0, 0.05);
+    color: #ff9900;
+}
+.theme-2 .panel-title,
+.theme-2 .info-value,
+.theme-2 .lang-btn.active {
+    color: #ff9900;
+}
+.theme-2 .keyboard-panel {
+    border-color: rgba(255, 153, 0, 0.1);
+}
+.theme-2 .keyboard-panel:hover {
+    border-color: rgba(255, 153, 0, 0.2);
+}
+
+.theme-3 .key-active {
+    background: rgba(193, 158, 209, 0.2);
+    border-color: #c19ed1;
+    box-shadow: 0 0 30px rgba(193, 158, 209, 0.1), inset 0 0 20px rgba(193, 158, 209, 0.05);
+    color: #c19ed1;
+}
+.theme-3 .panel-title,
+.theme-3 .info-value,
+.theme-3 .lang-btn.active {
+    color: #c19ed1;
+}
+.theme-3 .keyboard-panel {
+    border-color: rgba(193, 158, 209, 0.1);
+}
+.theme-3 .keyboard-panel:hover {
+    border-color: rgba(193, 158, 209, 0.2);
+}
+
+.theme-4 .key-active {
+    background: rgba(21, 255, 0, 0.2);
+    border-color: #15ff00;
+    box-shadow: 0 0 30px rgba(21, 255, 0, 0.1), inset 0 0 20px rgba(21, 255, 0, 0.05);
+    color: #15ff00;
+}
+.theme-4 .panel-title,
+.theme-4 .info-value,
+.theme-4 .lang-btn.active {
+    color: #15ff00;
+}
+.theme-4 .keyboard-panel {
+    border-color: rgba(21, 255, 0, 0.1);
+}
+.theme-4 .keyboard-panel:hover {
+    border-color: rgba(21, 255, 0, 0.2);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .key {
+        min-width: 34px;
+        height: 36px;
+        font-size: 0.7rem;
+        border-radius: 8px;
+    }
+    .key-mod {
+        min-width: 46px;
+        font-size: 0.6rem;
+    }
+    .key-space {
+        min-width: 100px;
+        font-size: 0.65rem;
+    }
+    .row {
+        gap: 0.2rem;
+    }
+    .keyboard-panel {
+        padding: 1rem 1rem 0.8rem;
+        border-radius: 16px;
+    }
+    .panel-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    .lang-switcher {
+        justify-content: center;
+    }
+    .panel-info {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .panel-clear {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .key {
+        min-width: 28px;
+        height: 30px;
+        font-size: 0.55rem;
+        border-radius: 6px;
+    }
+    .key-mod {
+        min-width: 34px;
+        font-size: 0.5rem;
+    }
+    .key-space {
+        min-width: 60px;
+        font-size: 0.5rem;
+    }
+    .row {
+        gap: 0.15rem;
+    }
+}
+.mouse-panel {
+    background: rgba(10, 10, 25, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 1.5rem 1.8rem 1.2rem;
+    margin: 30px 0;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.3s ease;
+}
+
+.mouse-panel:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+}
+
+.mouse-status {
+    color: #00ff88;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background: rgba(0, 255, 136, 0.05);
+    padding: 0.2rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.mouse-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mouse-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.mouse-coords {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.4rem 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.coord-label {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.75rem;
+    font-weight: 300;
+}
+
+.coord-value {
+    color: #00d4ff;
+    font-size: 0.95rem;
+    font-family: "Jura", monospace;
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+}
+
+.mouse-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mouse-btn {
+    padding: 0.3rem 1rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
+    transition: all 0.15s ease;
+    font-family: "Jura", sans-serif;
+}
+
+.mouse-btn.active-left {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: #00d4ff;
+    color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.05);
+}
+
+.mouse-btn.active-right {
+    background: rgba(255, 100, 100, 0.2);
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+    box-shadow: 0 0 20px rgba(255, 100, 100, 0.05);
+}
+
+.mouse-btn.active-middle {
+    background: rgba(255, 200, 0, 0.2);
+    border-color: #ffcc00;
+    color: #ffcc00;
+    box-shadow: 0 0 20px rgba(255, 200, 0, 0.05);
+}
+
+.mouse-scroll {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.4rem 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.scroll-label {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.75rem;
+    font-weight: 300;
+}
+
+.scroll-value {
+    color: #ffcc00;
+    font-size: 0.95rem;
+    font-family: "Jura", monospace;
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+}
+
+#mouseEventDisplay {
+    min-width: 150px;
+    font-size: 0.8rem;
+}
+
+.theme-2 .mouse-panel {
+    border-color: rgba(255, 153, 0, 0.1);
+}
+.theme-2 .mouse-panel:hover {
+    border-color: rgba(255, 153, 0, 0.2);
+}
+.theme-2 .coord-value {
+    color: #ff9900;
+}
+.theme-2 .mouse-btn.active-left {
+    background: rgba(255, 153, 0, 0.2);
+    border-color: #ff9900;
+    color: #ff9900;
+}
+
+.theme-3 .mouse-panel {
+    border-color: rgba(193, 158, 209, 0.1);
+}
+.theme-3 .mouse-panel:hover {
+    border-color: rgba(193, 158, 209, 0.2);
+}
+.theme-3 .coord-value {
+    color: #c19ed1;
+}
+.theme-3 .mouse-btn.active-left {
+    background: rgba(193, 158, 209, 0.2);
+    border-color: #c19ed1;
+    color: #c19ed1;
+}
+
+.theme-4 .mouse-panel {
+    border-color: rgba(21, 255, 0, 0.1);
+}
+.theme-4 .mouse-panel:hover {
+    border-color: rgba(21, 255, 0, 0.2);
+}
+.theme-4 .coord-value {
+    color: #15ff00;
+}
+.theme-4 .mouse-btn.active-left {
+    background: rgba(21, 255, 0, 0.2);
+    border-color: #15ff00;
+    color: #15ff00;
+}
+
+@media (max-width: 768px) {
+    .mouse-info {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    .mouse-coords, .mouse-scroll {
+        justify-content: center;
+    }
+    .mouse-buttons {
+        justify-content: center;
+    }
+    #mouseEventDisplay {
+        min-width: 100px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mouse-btn {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
+    }
+    .coord-value, .scroll-value {
+        font-size: 0.8rem;
+    }
+}

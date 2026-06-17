@@ -53,7 +53,7 @@
         <button id="carImg6" style="margin-right: 10px;">Star Finger</button>
         <button id="carImg7" style="margin-right: 10px;">XBOXuke</button>
         <button id="carImg8" style="margin-right: 10px;">How Buccialatta moved:</button>
-        <button id="carImg9" style="margin-right: 10px;">When Spilled Gold at the Roblox Experience</button>
+        <button id="carImg9" style="margin-right: 10px;">Why eyes's Gold?</button>
         
         <div style="margin-top: 10px;">
             <input type="text" id="customImgUrl" placeholder="Insert photo URL..." style="width: 300px; padding: 5px;">
@@ -73,7 +73,7 @@
     <div style="margin: 30px 0; padding: 20px; background: rgba(0,0,0,0.5); border-radius: 15px;">
     <h3 style="margin: 0 0 10px 0;">JavaScript Playground</h3>
     
-    <textarea id="codeInput" rows="6" style="width: 100%; background: #1a1a2e; border: 1px solid #3a3a5e; border-radius: 10px; color: #00d4ff; padding: 12px; font-family: monospace; font-size: 14px; resize: vertical;" placeholder='Type Javascript Code here...&#10;&#10;Наприклад:&#10;let x = 5 + 3;&#10;console.log(x);&#10;alert("Hello!");'></textarea>
+    <textarea id="codeInput" rows="6" style="width: 100%; background: #1a1a2e; border: 1px solid #3a3a5e; border-radius: 10px; color: #00d4ff; padding: 12px; font-family: monospace; font-size: 14px; resize: vertical;" placeholder='Type Javascript Code here...&#10;&#10;Example:&#10;let x = 5 + 3;&#10;console.log(x);&#10;alert("Hello!");'></textarea>
     
     <div style="margin-top: 10px;">
         <button id="runCodeBtn" style="background: #27ae60;">▶ Start the Code</button>
@@ -82,6 +82,136 @@
     
     <div id="codeOutput" style="margin-top: 15px; background: #0d0d1a; border: 1px solid #2a2a40; border-radius: 10px; padding: 12px; min-height: 100px; max-height: 300px; overflow: auto;">
         <span style="color: #888;">Result will appear here...</span>
+    </div>
+</div>
+
+    <div class="keyboard-panel" id="keyboardPanel">
+        <div class="panel-header">
+            <div class="panel-title">Keys</div>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="ru">Rus</button>
+                <button class="lang-btn" data-lang="en">Eng</button>
+                <button class="lang-btn" data-lang="ua">Ukr</button>
+            </div>
+        </div>
+
+        <div class="key-grid">
+            <!-- Ряд 1 -->
+            <div class="row">
+                <div class="key" data-key="`">`</div>
+                <div class="key" data-key="1">1</div>
+                <div class="key" data-key="2">2</div>
+                <div class="key" data-key="3">3</div>
+                <div class="key" data-key="4">4</div>
+                <div class="key" data-key="5">5</div>
+                <div class="key" data-key="6">6</div>
+                <div class="key" data-key="7">7</div>
+                <div class="key" data-key="8">8</div>
+                <div class="key" data-key="9">9</div>
+                <div class="key" data-key="0">0</div>
+                <div class="key" data-key="-">-</div>
+                <div class="key" data-key="=">=</div>
+            </div>
+            <!-- Ряд 2 -->
+            <div class="row">
+                <div class="key key-mod" data-key="tab">Tab</div>
+                <div class="key" data-key="q">Q</div>
+                <div class="key" data-key="w">W</div>
+                <div class="key" data-key="e">E</div>
+                <div class="key" data-key="r">R</div>
+                <div class="key" data-key="t">T</div>
+                <div class="key" data-key="y">Y</div>
+                <div class="key" data-key="u">U</div>
+                <div class="key" data-key="i">I</div>
+                <div class="key" data-key="o">O</div>
+                <div class="key" data-key="p">P</div>
+                <div class="key" data-key="[">[</div>
+                <div class="key" data-key="]">]</div>
+                <div class="key" data-key="\">\</div>
+            </div>
+            <!-- Ряд 3 -->
+            <div class="row">
+                <div class="key key-mod" data-key="capslock">Caps</div>
+                <div class="key" data-key="a">A</div>
+                <div class="key" data-key="s">S</div>
+                <div class="key" data-key="d">D</div>
+                <div class="key" data-key="f">F</div>
+                <div class="key" data-key="g">G</div>
+                <div class="key" data-key="h">H</div>
+                <div class="key" data-key="j">J</div>
+                <div class="key" data-key="k">K</div>
+                <div class="key" data-key="l">L</div>
+                <div class="key" data-key=";">;</div>
+                <div class="key" data-key="'">'</div>
+                <div class="key key-mod" data-key="enter">↵ Enter</div>
+            </div>
+            <!-- Ряд 4 -->
+            <div class="row">
+             <div class="key key-mod" data-key="shift-left" id="key-shift-left">⇧ Shift</div>
+             <div class="key" data-key="z">Z</div>
+             <div class="key" data-key="x">X</div>
+             <div class="key" data-key="c">C</div>
+             <div class="key" data-key="v">V</div>
+                <div class="key" data-key="b">B</div>
+             <div class="key" data-key="n">N</div>
+             <div class="key" data-key="m">M</div>
+             <div class="key" data-key=",">,</div>
+                <div class="key" data-key=".">.</div>
+             <div class="key" data-key="/">/</div>
+                <div class="key key-mod" data-key="shift-right" id="key-shift-right">⇧ Shift</div>
+            </div>
+            <!-- Ряд 5 -->
+            <div class="row">
+               <div class="key key-mod" data-key="control-left" id="key-control-left">Ctrl</div>
+              <div class="key key-mod" data-key="meta-left" id="key-meta-left">⊞ Win</div>
+              <div class="key key-mod" data-key="alt-left" id="key-alt-left">Alt</div>
+             <div class="key key-space" data-key=" ">␣ Space</div>
+             <div class="key key-mod" data-key="alt-right" id="key-alt-right">Alt</div>
+             <div class="key key-mod" data-key="meta-right" id="key-meta-right">⊞ Win</div>
+             <div class="key key-mod" data-key="context">☰</div>
+              <div class="key key-mod" data-key="control-right" id="key-control-right">Ctrl</div>
+            </div>
+        </div>
+
+        <div class="panel-info">
+            <span class="info-label">Last:</span>
+            <span class="info-value" id="lastKeyDisplay">—</span>
+            <span class="info-label" style="margin-left:15px;">Code:</span>
+            <span class="info-value" id="keyCodeDisplay">—</span>
+            <button class="panel-clear" id="clearLastKey">✕</button>
+        </div>
+    </div>
+
+    <div class="mouse-panel" id="mousePanel">
+    <div class="panel-header">
+        <div class="panel-title">Mouse</div>
+        <div class="mouse-status" id="mouseStatus">Active</div>
+    </div>
+
+    <div class="mouse-grid">
+        <div class="mouse-info">
+            <div class="mouse-coords">
+                <span class="coord-label">X:</span>
+                <span class="coord-value" id="mouseX">0</span>
+                <span class="coord-label" style="margin-left:15px;">Y:</span>
+                <span class="coord-value" id="mouseY">0</span>
+            </div>
+            <div class="mouse-buttons">
+                <div class="mouse-btn" id="mouseLeftBtn">LMB</div>
+                <div class="mouse-btn" id="mouseMiddleBtn">MMB</div>
+                <div class="mouse-btn" id="mouseRightBtn">RMB</div>
+            </div>
+            <div class="mouse-scroll">
+                <span class="scroll-label">Scroll:</span>
+                <span class="scroll-value" id="mouseScroll">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-info">
+        <span class="info-label">Подія:</span>
+        <span class="info-value" id="mouseEventDisplay">—</span>
+        <button class="panel-clear" id="clearMouse">✕</button>
     </div>
 </div>
 
