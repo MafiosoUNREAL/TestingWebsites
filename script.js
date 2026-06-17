@@ -206,6 +206,109 @@ window.onload = function() {
             }
         });
     }
+// JAVASCRIPT PLAYGROUND //
+    const codeInput = document.getElementById('codeInput');
+    const runCodeBtn = document.getElementById('runCodeBtn');
+    const clearCodeBtn = document.getElementById('clearCodeBtn');
+    const codeOutput = document.getElementById('codeOutput');
+    
+    function captureLogs() {
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            displayOutput(args, 'log');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            displayOutput(args, 'error');
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            displayOutput(args, 'warn');
+        };
+        
+        return function restore() {
+            console.log = originalLog;
+            console.error = originalError;
+            console.warn = originalWarn;
+        };
+    }
+    
+    function displayOutput(args, type) {
+        const outputLine = document.createElement('div');
+        outputLine.style.margin = '5px 0';
+        outputLine.style.fontFamily = 'monospace';
+        outputLine.style.fontSize = '13px';
+        
+        let prefix = '📌 ';
+        let color = '#00d4ff';
+        
+        if (type === 'error') {
+            prefix = '❌ ';
+            color = '#ff6b6b';
+        } else if (type === 'warn') {
+            prefix = '⚠️ ';
+            color = '#ffcc00';
+        }
+        
+        let text = args.map(arg => {
+            if (arg === undefined) return 'undefined';
+            if (arg === null) return 'null';
+            if (typeof arg === 'object') return JSON.stringify(arg, null, 2);
+            return String(arg);
+        }).join(' ');
+        
+        outputLine.innerHTML = `${prefix}<span style="color: ${color};">${escapeHtml(text)}</span>`;
+        codeOutput.appendChild(outputLine);
+        codeOutput.scrollTop = codeOutput.scrollHeight;
+    }
+    
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    if (runCodeBtn && codeInput && codeOutput) {
+        runCodeBtn.addEventListener('click', function() {
+            const restore = captureLogs();
+            codeOutput.innerHTML = '';
+            
+            try {
+                const userCode = codeInput.value;
+                const asyncWrapper = new AsyncFunction(userCode);
+                asyncWrapper().catch(err => {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.style.color = '#ff6b6b';
+                    errorDiv.style.margin = '5px 0';
+                    errorDiv.textContent = `❌ Помилка: ${err.message}`;
+                    codeOutput.appendChild(errorDiv);
+                });
+            } catch (err) {
+                const errorDiv = document.createElement('div');
+                errorDiv.style.color = '#ff6b6b';
+                errorDiv.style.margin = '5px 0';
+                errorDiv.textContent = `❌ Помилка: ${err.message}`;
+                codeOutput.appendChild(errorDiv);
+            }
+            
+            setTimeout(() => restore(), 100);
+        });
+        
+        clearCodeBtn.addEventListener('click', function() {
+            codeInput.value = '';
+            codeOutput.innerHTML = '<span style="color: #888;">Результат виконання з\'явиться тут...</span>';
+        });
+    }
+    
+    function AsyncFunction(body) {
+        return new Function('return (async () => {' + body + '})()');
+    }
 };
 
 
