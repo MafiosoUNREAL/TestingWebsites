@@ -604,7 +604,7 @@ window.onload = function() {
             mouseStatus.textContent = '✅ Active';
             mouseStatus.style.color = '#00ff88';
         } else {
-            mouseStatus.textContent = '⛔ Inactive';
+            mouseStatus.textContent = '❌ Inactive';
             mouseStatus.style.color = '#ff6b6b';
         }
     }
@@ -638,7 +638,7 @@ window.onload = function() {
             buttonName = 'Right button';
         }
         mouseEventDisplay.textContent = `Pressed: ${buttonName}`;
-        mouseStatus.textContent = '🔴 Pressed';
+        mouseStatus.textContent = '❌ Pressed';
         mouseStatus.style.color = '#ff6b6b';
     });
 
@@ -656,7 +656,7 @@ window.onload = function() {
         mouseScroll.textContent = scrollCount;
         const direction = event.deltaY > 0 ? 'Down' : 'Up';
         mouseEventDisplay.textContent = `Scroll: ${direction} (${scrollCount})`;
-        mouseStatus.textContent = '📜 Scrolling';
+        mouseStatus.textContent = 'Scrolling';
         mouseStatus.style.color = '#ffcc00';
         clearTimeout(window.scrollTimeout);
         window.scrollTimeout = setTimeout(() => {
@@ -670,7 +670,7 @@ window.onload = function() {
         if (!isMouseActive) return;
         mouseRightBtn.classList.add('active-right');
         mouseEventDisplay.textContent = 'Context menu (RMB)';
-        mouseStatus.textContent = '🔴 RMB';
+        mouseStatus.textContent = '❌ RMB';
         mouseStatus.style.color = '#ff6b6b';
         
         setTimeout(function() {
@@ -695,3 +695,270 @@ window.onload = function() {
     }
 
     updateMouseStatus();
+
+        const laptopKeys = document.querySelectorAll('.laptop-key');
+    const laptopEventDisplay = document.getElementById('laptopEventDisplay');
+    const clearLaptop = document.getElementById('clearLaptop');
+    const laptopStatus = document.getElementById('laptopStatus');
+
+    const fnKey = document.getElementById('fnKey');
+    const capsLed = document.getElementById('capsLed');
+    const numLed = document.getElementById('numLed');
+    const scrollLed = document.getElementById('scrollLed');
+    const insertLed = document.getElementById('insertLed');
+    const batteryLevel = document.getElementById('batteryLevel');
+    const wifiStatus = document.getElementById('wifiStatus');
+    const volumeLevel = document.getElementById('volumeLevel');
+    const brightnessLevel = document.getElementById('brightnessLevel');
+
+    let fnPressed = false;
+    let isLaptopActive = true;
+
+    const fKeyMap = {
+        'f1': 'F1', 'f2': 'F2', 'f3': 'F3', 'f4': 'F4',
+        'f5': 'F5', 'f6': 'F6', 'f7': 'F7', 'f8': 'F8',
+        'f9': 'F9', 'f10': 'F10', 'f11': 'F11', 'f12': 'F12'
+    };
+
+    function resetLaptopKeys() {
+        laptopKeys.forEach(el => {
+            el.classList.remove('active-fn', 'active-f1', 'active-f2', 'active-f3', 'active-f4');
+        });
+    }
+
+    function updateLaptopStatus() {
+        if (isLaptopActive) {
+            laptopStatus.textContent = '🟢 Online';
+            laptopStatus.style.color = '#00ff88';
+        } else {
+            laptopStatus.textContent = '🔴 Offline';
+            laptopStatus.style.color = '#ff6b6b';
+        }
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (!isLaptopActive) return;
+        
+        const key = event.key.toLowerCase();
+        const code = event.code;
+
+        if (key === 'fn' || code === 'Fn') {
+            fnPressed = true;
+            fnKey.classList.add('active-fn');
+            laptopEventDisplay.textContent = 'Fn pressed';
+            laptopStatus.textContent = '🔵 Fn';
+            laptopStatus.style.color = '#ffcc00';
+            return;
+        }
+
+        if (key.startsWith('f') && fKeyMap[key]) {
+            const fNum = key.toUpperCase();
+            const el = document.querySelector(`.laptop-key[data-key="${key}"]`);
+            if (el) {
+                resetLaptopKeys();
+                el.classList.add('active-f1');
+                laptopEventDisplay.textContent = `${fNum} pressed`;
+                laptopStatus.textContent = `🔵 ${fNum}`;
+                laptopStatus.style.color = '#ffcc00';
+            }
+        }
+
+        if (key === 'capslock') {
+            capsLed.classList.toggle('on');
+            capsLed.classList.toggle('off');
+            laptopEventDisplay.textContent = `Caps Lock ${capsLed.classList.contains('on') ? 'ON' : 'OFF'}`;
+        }
+
+        if (key === 'numlock') {
+            numLed.classList.toggle('on');
+            numLed.classList.toggle('off');
+            laptopEventDisplay.textContent = `Num Lock ${numLed.classList.contains('on') ? 'ON' : 'OFF'}`;
+        }
+
+        if (key === 'scrolllock') {
+            scrollLed.classList.toggle('on');
+            scrollLed.classList.toggle('off');
+            laptopEventDisplay.textContent = `Scroll Lock ${scrollLed.classList.contains('on') ? 'ON' : 'OFF'}`;
+        }
+
+        if (key === 'insert') {
+            insertLed.classList.toggle('on');
+            insertLed.classList.toggle('off');
+            laptopEventDisplay.textContent = `Insert ${insertLed.classList.contains('on') ? 'ON' : 'OFF'}`;
+        }
+
+        setTimeout(() => {
+            if (!fnPressed) {
+                resetLaptopKeys();
+            }
+            laptopStatus.textContent = '🟢 Online';
+            laptopStatus.style.color = '#00ff88';
+        }, 500);
+    });
+
+    document.addEventListener('keyup', function(event) {
+        if (!isLaptopActive) return;
+        
+        const key = event.key.toLowerCase();
+        const code = event.code;
+
+        if (key === 'fn' || code === 'Fn') {
+            fnPressed = false;
+            fnKey.classList.remove('active-fn');
+            resetLaptopKeys();
+            laptopEventDisplay.textContent = 'Fn released';
+            laptopStatus.textContent = '🟢 Online';
+            laptopStatus.style.color = '#00ff88';
+        }
+    });
+
+    function getBatteryStatus() {
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(function(battery) {
+                const level = Math.round(battery.level * 100);
+                batteryLevel.textContent = level + '%';
+                if (level < 20) {
+                    batteryLevel.style.color = '#ff6b6b';
+                } else if (level < 50) {
+                    batteryLevel.style.color = '#ffcc00';
+                } else {
+                    batteryLevel.style.color = '#00ff88';
+                }
+            }).catch(function() {
+                batteryLevel.textContent = '—';
+            });
+        } else {
+            batteryLevel.textContent = '—';
+        }
+    }
+
+    function getWifiStatus() {
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            if (connection) {
+                wifiStatus.textContent = connection.downlink ? connection.downlink + ' Mbps' : 'Online';
+                wifiStatus.style.color = '#00ff88';
+            } else {
+                wifiStatus.textContent = 'Online';
+                wifiStatus.style.color = '#00ff88';
+            }
+        } else {
+            wifiStatus.textContent = 'Online';
+            wifiStatus.style.color = '#00ff88';
+        }
+    }
+
+    function getVolumeStatus() {
+        if ('mediaDevices' in navigator) {
+            navigator.mediaDevices.getUserMedia({ 
+                audio: {
+                    echoCancellation: false,
+                    noiseSuppression: false,
+                    autoGainControl: false,
+                    volume: 1.0
+                } 
+            }).then(function(stream) {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const source = audioContext.createMediaStreamSource(stream);
+                const analyser = audioContext.createAnalyser();
+                analyser.fftSize = 2048;
+                source.connect(analyser);
+                const dataArray = new Uint8Array(analyser.frequencyBinCount);
+                
+                let maxVolume = 0;
+                let smoothing = 0.7;
+                
+                function checkVolume() {
+                    analyser.getByteFrequencyData(dataArray);
+                    let sum = 0;
+                    for (let i = 0; i < dataArray.length; i++) {
+                        sum += dataArray[i];
+                    }
+                    let avg = (sum / dataArray.length) / 255;
+                    
+                    avg = Math.pow(avg, 0.6);
+                    
+                    let percent = Math.round(avg * 100);
+                    
+                    percent = Math.min(100, Math.max(0, percent * 1.5));
+                    
+                    if (percent > maxVolume) {
+                        maxVolume = percent;
+                    } else {
+                        maxVolume = maxVolume * smoothing + percent * (1 - smoothing);
+                    }
+                    
+                    const displayPercent = Math.round(maxVolume);
+                    volumeLevel.textContent = displayPercent + '%';
+                    
+                    if (displayPercent < 5) {
+                        volumeLevel.style.color = '#888';
+                    } else if (displayPercent < 50) {
+                        volumeLevel.style.color = '#00ff88';
+                    } else if (displayPercent < 75) {
+                        volumeLevel.style.color = '#ffcc00';
+                    } else if (displayPercent < 90) {
+                        volumeLevel.style.color = '#ff8800';
+                    } else {
+                        volumeLevel.style.color = '#ff3737';
+                    }
+                    
+                    if (displayPercent < 3) {
+                        volumeLevel.textContent = '🔇 0%';
+                    }
+                }
+                
+                setInterval(checkVolume, 100);
+                
+            }).catch(function(err) {
+                console.log('Microphone access denied:', err);
+                volumeLevel.textContent = '🔇 No mic';
+                volumeLevel.style.color = '#ff6b6b';
+            });
+        } else {
+            volumeLevel.textContent = '—';
+        }
+    }
+
+    function getBrightnessStatus() {
+        if ('getScreenDetails' in window) {
+            window.getScreenDetails().then(function(screens) {
+                const screen = screens.screens[0];
+                if (screen && screen.brightness) {
+                    const brightness = Math.round(screen.brightness * 100);
+                    brightnessLevel.textContent = brightness + '%';
+                    if (brightness < 30) {
+                        brightnessLevel.style.color = '#00ff88';
+                    } else if (brightness < 70) {
+                        brightnessLevel.style.color = '#ffcc00';
+                    } else {
+                        brightnessLevel.style.color = '#ff6b6b';
+                    }
+                } else {
+                    brightnessLevel.textContent = '—';
+                }
+            }).catch(function() {
+                brightnessLevel.textContent = '—';
+            });
+        } else {
+            brightnessLevel.textContent = '—';
+        }
+    }
+
+    if (clearLaptop) {
+        clearLaptop.addEventListener('click', function() {
+            resetLaptopKeys();
+            fnPressed = false;
+            fnKey.classList.remove('active-fn');
+            laptopEventDisplay.textContent = '—';
+            isLaptopActive = !isLaptopActive;
+            updateLaptopStatus();
+        });
+    }
+
+    getBatteryStatus();
+    getWifiStatus();
+    getVolumeStatus();
+    getBrightnessStatus();
+
+    updateLaptopStatus();

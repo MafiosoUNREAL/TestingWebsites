@@ -944,3 +944,238 @@ footer {
         font-size: 0.8rem;
     }
 }
+
+.laptop-panel {
+    background: rgba(10, 10, 25, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 1.5rem 1.8rem 1.2rem;
+    margin: 30px 0;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.3s ease;
+}
+
+.laptop-panel:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+}
+
+.laptop-status {
+    color: #00ff88;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background: rgba(0, 255, 136, 0.05);
+    padding: 0.2rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.laptop-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.laptop-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.laptop-key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+    font-size: 0.8rem;
+    font-family: "Jura", sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: all 0.08s ease;
+    user-select: none;
+}
+
+.laptop-key.active-fn {
+    background: rgba(255, 200, 0, 0.2);
+    border-color: #ffcc00;
+    color: #ffcc00;
+    box-shadow: 0 0 30px rgba(255, 200, 0, 0.1);
+}
+
+.laptop-key.active-f1 {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: #00d4ff;
+    color: #00d4ff;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.laptop-key.active-f2 {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: #00ff88;
+    color: #00ff88;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+}
+
+.laptop-key.active-f3 {
+    background: rgba(255, 100, 100, 0.2);
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+    box-shadow: 0 0 30px rgba(255, 100, 100, 0.1);
+}
+
+.laptop-key.active-f4 {
+    background: rgba(193, 158, 209, 0.2);
+    border-color: #c19ed1;
+    color: #c19ed1;
+    box-shadow: 0 0 30px rgba(193, 158, 209, 0.1);
+}
+
+.laptop-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.3rem 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.indicator-led {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.indicator-led.on {
+    background: #00ff88;
+    box-shadow: 0 0 16px rgba(0, 255, 136, 0.3);
+}
+
+.indicator-led.off {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.indicator-label {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.laptop-stats {
+    gap: 1rem;
+    justify-content: center;
+}
+
+.laptop-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.3rem 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.stat-icon {
+    font-size: 1rem;
+}
+
+.stat-value {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-family: "Jura", monospace;
+    font-weight: 500;
+    min-width: 30px;
+}
+
+#laptopEventDisplay {
+    min-width: 150px;
+    font-size: 0.8rem;
+}
+
+.theme-2 .laptop-panel {
+    border-color: rgba(255, 153, 0, 0.1);
+}
+.theme-2 .laptop-panel:hover {
+    border-color: rgba(255, 153, 0, 0.2);
+}
+.theme-2 .laptop-key.active-f1 {
+    background: rgba(255, 153, 0, 0.2);
+    border-color: #ff9900;
+    color: #ff9900;
+}
+
+.theme-3 .laptop-panel {
+    border-color: rgba(193, 158, 209, 0.1);
+}
+.theme-3 .laptop-panel:hover {
+    border-color: rgba(193, 158, 209, 0.2);
+}
+.theme-3 .laptop-key.active-f1 {
+    background: rgba(193, 158, 209, 0.2);
+    border-color: #c19ed1;
+    color: #c19ed1;
+}
+
+.theme-4 .laptop-panel {
+    border-color: rgba(21, 255, 0, 0.1);
+}
+.theme-4 .laptop-panel:hover {
+    border-color: rgba(21, 255, 0, 0.2);
+}
+.theme-4 .laptop-key.active-f1 {
+    background: rgba(21, 255, 0, 0.2);
+    border-color: #15ff00;
+    color: #15ff00;
+}
+
+@media (max-width: 768px) {
+    .laptop-key {
+        min-width: 34px;
+        height: 36px;
+        font-size: 0.65rem;
+    }
+    .laptop-row {
+        gap: 0.3rem;
+    }
+    .laptop-indicator {
+        padding: 0.2rem 0.6rem;
+    }
+    .indicator-label {
+        font-size: 0.6rem;
+    }
+    .laptop-stat {
+        padding: 0.2rem 0.6rem;
+    }
+    .stat-value {
+        font-size: 0.7rem;
+    }
+    #laptopEventDisplay {
+        min-width: 100px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .laptop-key {
+        min-width: 28px;
+        height: 30px;
+        font-size: 0.55rem;
+    }
+    .laptop-row {
+        gap: 0.2rem;
+    }
+    .laptop-stats {
+        gap: 0.5rem;
+    }
+}

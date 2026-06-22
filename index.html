@@ -87,7 +87,7 @@
 
     <div class="keyboard-panel" id="keyboardPanel">
         <div class="panel-header">
-            <div class="panel-title">Keys</div>
+            <div class="panel-title">Keyboard</div>
             <div class="lang-switcher">
                 <button class="lang-btn active" data-lang="ru">Rus</button>
                 <button class="lang-btn" data-lang="en">Eng</button>
@@ -182,6 +182,75 @@
         </div>
     </div>
 
+    <div class="laptop-panel" id="laptopPanel">
+    <div class="panel-header">
+        <div class="panel-title">Laptop</div>
+        <div class="laptop-status" id="laptopStatus">🟢 Online</div>
+    </div>
+
+    <div class="laptop-grid">
+        <div class="laptop-row">
+            <div class="laptop-key" data-key="fn" id="fnKey">Fn</div>
+            <div class="laptop-key" data-key="f1">F1</div>
+            <div class="laptop-key" data-key="f2">F2</div>
+            <div class="laptop-key" data-key="f3">F3</div>
+            <div class="laptop-key" data-key="f4">F4</div>
+            <div class="laptop-key" data-key="f5">F5</div>
+            <div class="laptop-key" data-key="f6">F6</div>
+            <div class="laptop-key" data-key="f7">F7</div>
+            <div class="laptop-key" data-key="f8">F8</div>
+            <div class="laptop-key" data-key="f9">F9</div>
+            <div class="laptop-key" data-key="f10">F10</div>
+            <div class="laptop-key" data-key="f11">F11</div>
+            <div class="laptop-key" data-key="f12">F12</div>
+        </div>
+
+        <div class="laptop-row">
+            <div class="laptop-indicator" id="capsLockIndicator">
+                <span class="indicator-led" id="capsLed"></span>
+                <span class="indicator-label">Caps</span>
+            </div>
+            <div class="laptop-indicator" id="numLockIndicator">
+                <span class="indicator-led" id="numLed"></span>
+                <span class="indicator-label">Num</span>
+            </div>
+            <div class="laptop-indicator" id="scrollLockIndicator">
+                <span class="indicator-led" id="scrollLed"></span>
+                <span class="indicator-label">Scroll</span>
+            </div>
+            <div class="laptop-indicator" id="insertIndicator">
+                <span class="indicator-led" id="insertLed"></span>
+                <span class="indicator-label">Ins</span>
+            </div>
+        </div>
+
+        <div class="laptop-row laptop-stats">
+            <div class="laptop-stat">
+                <span class="stat-icon">🔋</span>
+                <span class="stat-value" id="batteryLevel">—</span>
+            </div>
+            <div class="laptop-stat">
+                <span class="stat-icon">📶</span>
+                <span class="stat-value" id="wifiStatus">—</span>
+            </div>
+            <div class="laptop-stat">
+                <span class="stat-icon">🔊</span>
+                <span class="stat-value" id="volumeLevel">—</span>
+            </div>
+            <div class="laptop-stat">
+                <span class="stat-icon">☀️</span>
+                <span class="stat-value" id="brightnessLevel">—</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-info">
+        <span class="info-label">Event:</span>
+        <span class="info-value" id="laptopEventDisplay">—</span>
+        <button class="panel-clear" id="clearLaptop">✕</button>
+    </div>
+</div>
+
     <div class="mouse-panel" id="mousePanel">
     <div class="panel-header">
         <div class="panel-title">Mouse</div>
@@ -215,9 +284,7 @@
     </div>
 </div>
 
-    <p id="MACHINE">There was just a useless "EEEE..." text, sooo.
-        I want to say that I will continue working on this site until it's gonna be ready.
-        After it's gonna be done, I will update it rarely.
+    <p id="MACHINE"> Uhh I'm trying to use emoji's where it looks great, nice and simple, but bruh, I don't like emoji's at all.
     </p>
 
     <footer>
